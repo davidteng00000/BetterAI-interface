@@ -1,0 +1,21 @@
+
+
+.main{
+    /* min-height: 100vh; */
+    .words{
+        float: left;
+        margin: 100px;
+        .title{
+            font-size: 64px;
+        }
+        .content{
+            font-size: 24px;
+        }
+    }
+    .img{
+        float: right;
+        height: 250px;
+        margin: 100px;
+    }
+    
+}

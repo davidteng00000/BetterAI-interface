@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>@import url("./user.css");</style>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+</head>
+<body>
+    <link rel="stylesheet" href="./navbar.css">
+    <div class="navbar">
+        <a href="./home.html" class="navL">BetterAI</a>
+        <div class="dropdown">
+            <button class="dropbtn">Product lists</button>
+            <div class="dropdown-content">
+                <a href="./myLLM.html">myLLM</a>
+                <!-- <a href="https://www.asus.com/tw/">DALLE helper</a> -->
+            </div>
+            
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">About me</button>
+            <div class="dropdown-content">
+                <a href="https://www.instagram.com/david._.teng/">Instagram</a>
+                <a href="https://www.facebook.com/profile.php?id=100010503635046">Facebook</a>
+                
+            </div>
+        </div>
+        <a href="./user.html" class="navR logged userImg"><img src="./images/userImg.png" alt="userImg"></a>
+        
+        <a class="navR unlogged btn" href="./login.html">log in</a>
+        <a class="navR unlogged btn" href="./signUp.html">sign up</a>
+    </div>
+
+    <div class="container">
+        <div class="wrapper">
+            <!-- <div class="control-panel">
+                <img src="./images/userImg.png" alt="" class="profileImg">
+                <div class="sub">
+                    <button href="" class=""><i class='bx bx-user-circle'></i>個人設定</button>
+                </div>
+                <div class="sub">
+                    <button href=""><i class='bx bxs-star'></i>收藏</button>
+                </div>
+                
+            </div> -->
+
+            <div class="details">
+                <div class="user-settings">
+                    <div class="greet"><span>Username</span>，你好 ! </div>
+                    <!-- <div class="change-profileImg sub">點擊上傳新頭像</div> -->
+                    <div class="change-username sub">
+                        如果要更改使用者名稱，請在以下輸入框輸入新名子並點擊"確認"<br>
+                        <input type="text" placeholder="username">
+                        <button type="submit">確認</button>
+                    </div>
+                    <div class="change-password sub">
+                        如果要更改使用者密碼，請在以下輸入框輸入新密碼並點擊"確認"<br>
+                        <input type="text" placeholder="password">
+                        <input type="text" placeholder="password">
+                        <button type="submit">確認</button>
+                    </div>
+                    <div class="change-API sub">
+                        請輸入openAI的API key並按下確認<br>
+                        <input type="password" placeholder="new API key">
+                        <button type="submit">確認</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

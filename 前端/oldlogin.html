@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./login.css">
+    <style>@import url("./body.css");</style>
+</head>
+<body>
+    <style>@import url("./navbar.css");</style>
+    <div class="navbar">
+        <a href="./home.html" class="navL">MyChatGPT</a>
+        <div class="dropdown">
+            <button class="dropbtn">Product lists</button>
+            <div class="dropdown-content">
+                <a href="./111502032_html_2.html">Advanced GPT</a>
+                <a href="https://www.asus.com/tw/">DALLE helper</a>
+            </div>
+            
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">About me</button>
+            <div class="dropdown-content">
+                <a href="https://www.instagram.com/david._.teng/">Instagram</a>
+                <a href="https://www.facebook.com/profile.php?id=100010503635046">Facebook</a>
+                
+            </div>
+        </div>
+        <a href="./user.html" class="navR logged userImg"><img src="./images/userImg.png" alt="userImg"></a>
+        
+        <button class="navR unlogged btn">log in</button>
+        <button class="navR unlogged btn">sign up</button>
+    </div>
+    <login>
+        <div class="login-container">
+        <h2>Login</h2>
+        <form action="#" method="post">
+            <div class="input-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    </login>
+    
+</body>
+</html>

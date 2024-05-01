@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myGPT</title>
+    <link rel="stylesheet" href="./myLLM.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./chat.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="new">
+                New Chat <i class='bx bx-message-rounded-add' style='color:#ffffff'  ></i>
+            </div>
+            <span>chat histories</span>
+            <div class="histories">
+                
+                <div class="history">
+                    Unitiled
+                </div>
+                <div class="history">
+                    Unitiled
+                </div>
+                <div class="history">
+                    Unitiled
+                </div>
+                <div class="history">
+                    Unitiled
+                </div>
+                <div class="history">
+                    Unitiled
+                </div>
+                <div class="history">
+                    Unitiled
+                </div>
+                <div class="history">
+                    Unitiled
+                </div>
+                <div class="history">
+                    Unitiled
+                </div>
+                <div class="history">
+                    Unitiled
+                </div>
+                <div class="history">
+                    Unitiled
+                </div>
+                <div class="history">
+                    Unitiled
+                </div>
+                <div class="history">
+                    Unitiled
+                </div>
+            </div>
+            <div class="bottom">
+                <a class="goHome" href="./home.html">
+                    <i class='bx bxs-home'></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="chatInterface">
+            <div class="bar">
+                <div class="dropdown" id="chooseModel">
+                    <div class="dropdownbtn"><span id="currmodel">ChatGPT 4</span><i class='bx bx-chevron-down'></i></div>
+                    <div class="dropdown-content">
+                        <div class="content" id="GPT3">ChatGPT 3.5</div>
+                        <div class="content" id="GPT4">ChatGPT 4</div>
+                        <div class="content" id="DALLE">DALL·E 3</div>
+                    </div>
+                </div>
+                <div class="settingsIcon">
+                    <i class='bx bx-cog'></i>
+                </div>
+            </div>
+            <div class="chat">
+
+                
+                <div class="greet">
+                    How can I help you today?
+                </div>
+                <div class="user">
+                    <div class="nametag"><i class='bx bx-user-circle'></i><span>You</span></div>
+                    
+                    <div class="content">
+                        早安
+                        <!-- 早安，以下程式碼有甚麼錯誤????????????早安??????????????????????????????????????????????????????????????????????????????????????????????????? -->
+                    </div>
+                </div>
+                <div class="chatbot">
+                    <div class="nametag"><img src="./images/apple-touch-icon.png" alt=""><span>GPT</span></div>
+                    <div class="content">
+                        早安！新的一天开始了，有什么可以帮到你的吗？
+                    </div>
+                </div>
+
+                <div class="user">
+                    <div class="nametag"><i class='bx bx-user-circle'></i><span>You</span></div>
+                    
+                    <div class="content">
+                        沒有
+                        <!-- 早安，以下程式碼有甚麼錯誤????????????早安??????????????????????????????????????????????????????????????????????????????????????????????????? -->
+                    </div>
+                </div>
+                <div class="chatbot">
+                    <div class="nametag"><img src="./images/apple-touch-icon.png" alt=""><span>GPT</span></div>
+                    <div class="content">
+                        好的，如果有任何问题或需要帮助的时候，随时来找我。祝你今天过得愉快！
+                    </div>
+                </div>
+
+                <div class="user">
+                    <div class="nametag"><i class='bx bx-user-circle'></i><span>You</span></div>
+                    
+                    <div class="content">
+                        解釋機器學習
+                        <!-- 早安，以下程式碼有甚麼錯誤????????????早安??????????????????????????????????????????????????????????????????????????????????????????????????? -->
+                    </div>
+                </div>
+                <div class="chatbot">
+                    <div class="nametag"><img src="./images/apple-touch-icon.png" alt=""><span>GPT</span></div>
+                    <div class="content">
+                        机器学习是一种人工智能的分支，旨在让计算机系统通过学习数据来改进其性能，而无需明确地编程。它使计算机系统能够从数据中发现模式、规律和洞察，并且能够做出基于这些发现的决策或预测。\n
+
+这种学习过程通常分为监督学习、无监督学习和强化学习三种主要范式：
+
+监督学习（Supervised Learning）：在监督学习中，算法接收带有标签的数据集作为输入，其中每个样本都有对应的标签或输出。算法通过学习输入和输出之间的关系来建立模型，从而能够对新的输入数据进行准确的预测或分类。
+无监督学习（Unsupervised Learning）：在无监督学习中，算法接收的数据没有任何标签或输出。其目标是发现数据中的模式、结构或特征，以便对数据进行更深入的理解或分析，比如聚类和降维。
+强化学习（Reinforcement Learning）：在强化学习中，算法学习通过与环境的交互来达到某种目标。它通过尝试不同的行动并根据反馈（奖励或惩罚）来调整其行为，以最大化长期收益。强化学习在实现目标导向的自主决策时非常有用，比如在游戏中训练智能体玩游戏或在机器人控制中训练机器人执行任务。
+机器学习在各种领域都有广泛的应用，包括图像识别、语音识别、自然语言处理、推荐系统、金融预测等。它的发展已经取得了巨大的成就，并且持续推动着人工智能技术的发展。
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="chat-input">
+                <div class="inBar">
+                    <i class='bx bx-image-add'></i>
+                    <i class='bx bx-folder-plus'></i>
+                </div>
+                <div class="inText">
+                    <textarea id="inputTextArea"  placeholder="send messages..." required></textarea>
+                    <i class='bx bx-send'></i>
+                </div>
+                
+            </div>
+            <script src="./myLLM.js">
+                
+            </script>
+        </div>
+    </div>
+    <div class="settings" id="setPage">
+        <div class="wrapper" id="setW">
+            <form class="main" action="">
+                <div class="set-chatName">
+                    <span>對話名稱: </span><input type="text" value="currName">
+                    <!-- <i class='bx bx-check'></i> -->
+                </div>
+                <div class="set-sysPrompt">
+                    <span>sys prompt: </span>
+                    <textarea name="" id="sysPrompt" cols="30" rows="10">curr sys prompt</textarea>
+                </div>
+                <div class="more-details">
+                    <!-- more details -->
+                    <div class="details">
+                        <div class="set-topP"></div>
+                        <div class="set-topK"></div>
+                        <div class="set-maxToken"></div>
+                    </div>
+                </div>
+                <div id="setConfirmBtn">
+                    <span>confirm</span><i class='bx bx-check'></i>
+                </div>
+            </form>
+            
+            
+        </div>
+    </div>
+    <!-- <link rel="script" href="./myLLM.js"> -->
+</body>
+</html>
