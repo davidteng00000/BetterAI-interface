@@ -34,11 +34,10 @@ DALLE.addEventListener('click', () => changemodel('DALL·E 3'));
 let setbtn = document.getElementsByClassName('settingsIcon')[0];
 let setP = false;
 let setBack = document.getElementById('setPage');
-// console.log(setBack);
 
 function setPageOnOff(e){
     console.log(1);
-    if(setP === false){
+    if(setP === false){ //開啟設定介面
         document.getElementById('setPage').style.display = "block";
         setP = true;
         console.log(2);
@@ -46,7 +45,7 @@ function setPageOnOff(e){
         setBack.addEventListener('click', setPageOnOff);
     }
     else{
-        if(e.target === document.getElementById('setPage')){
+        if(e.target === document.getElementById('setPage')){ //關閉設定介面
             document.getElementById('setPage').style.display = "none";
             setP = false;
             console.log(3);
@@ -57,3 +56,5 @@ function setPageOnOff(e){
 
 setbtn.addEventListener('click', e => setPageOnOff());
 
+// 偵測設定介面的more details btn
+let 

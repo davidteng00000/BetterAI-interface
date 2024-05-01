@@ -115,11 +115,27 @@
                 }
                 
             }
+            .more-details{
+                width: 90%;
+                text-align: center;
+                padding: 10px 14px;
+                margin: 10px 3% 5px 3%;
+                border-radius: 10px;
+                &:hover{
+                    background-color: #4b4b4b;
+                }
+                span {
+                    margin-right: 6px;
+                }
+                i{
+                    transform: rotate(90deg);
+                }
+            }
             #setConfirmBtn{
                 width: 90%;
-                padding: 2%;
-                margin: 10px 3%;
-                margin-top: 20px;
+                /* padding: 2%; */
+                margin: 0px 3%;
+                /* margin-top: 10px; */
                 text-align: center;
                 padding: 10px 14px;
                 background-color: #4b4b4b;
