@@ -433,7 +433,7 @@
                     border-color: none;
                 }
             }
-            i{
+            .bx-send{
                 scale: 2;
                 color: rgb(255, 255, 255);
                 padding: 5px;
@@ -444,6 +444,19 @@
                 cursor: pointer;
                 &:hover{
                     background-color: rgba(95, 95, 95, 0.5);
+                }
+            }
+            .bx-stop-circle{
+                scale: 2;
+                color: rgb(255, 255, 255);
+                padding: 3px;
+                margin-left: 15px;
+                height: 15px;
+                transform: translateY(25%);
+                border-radius: 10px;
+                cursor: pointer;
+                &:hover{
+                    background-color: rgba(135, 38, 38, 0.5);
                 }
             }
         }
