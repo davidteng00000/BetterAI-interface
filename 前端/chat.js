@@ -2,7 +2,7 @@
 document.getElementById('inputTextArea').addEventListener('keydown', function(event) {
     if (event.key === 'Enter' && !event.shiftKey) {
         // 在這裡執行當按下 Enter 鍵時要執行的操作
-        console.log('Enter 鍵被按下了');
+        // console.log('Enter 鍵被按下了');
         text = document.getElementById('inputTextArea').value.trim();
         if(text){
             handleTextInput();
@@ -73,11 +73,11 @@ function getReplyAndShow(text){
     showAiReply(reply);
 }
 function replaceSyntax(text){
-    console.log(text);
+    // console.log(text);
     text = text.replace(/\n/g, '<br>');
     text = text.replace(/\\n/g, '<br>');
-    
-    console.log(text);
+
+    // console.log(text);
     return text;
 }
 
