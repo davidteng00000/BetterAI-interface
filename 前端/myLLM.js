@@ -4,7 +4,7 @@ const inputTextArea = document.querySelector("textarea");
 inputTextArea.addEventListener("keyup", e =>{
     inputTextArea.style.height = "16px";
     let scHeight = e.target.scrollHeight;
-    console.log(scHeight)
+    // console.log(scHeight)
     // inputTextArea.style.height = "auto";
     inputTextArea.style.height = `${scHeight}px`;
 });
