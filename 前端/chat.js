@@ -1,10 +1,23 @@
-// 獲取chatInterface輸入
+// 確認user 送出chatInterface輸入
 document.getElementById('inputTextArea').addEventListener('keydown', function(event) {
     if (event.key === 'Enter' && !event.shiftKey) {
         // 在這裡執行當按下 Enter 鍵時要執行的操作
         console.log('Enter 鍵被按下了');
+        text = document.getElementById('inputTextArea').value;
+        let containsNonSpace = /\S/.test(text);
+        if(containsNonSpace){
+            handleTextInput();
+        }
+        // handleTextInput();
+    }
+});
+document.getElementsByClassName('bx-send')[0].addEventListener('click', function(){
+    text = document.getElementById('inputTextArea').value;
+    let containsNonSpace = /\S/.test(text);
+    if(containsNonSpace){
         handleTextInput();
     }
+    
 });
 // 讓問題出現在chat interface 並呼叫getReplyAndShow獲取reply
 function handleTextInput(){
@@ -42,6 +55,7 @@ function addUserText(text){
 
     // 把送出按鈕換掉
     removeSendButton();
+    // document.getElementsByClassName('chat')[0].scrollTop = document.getElementsByClassName('chat')[0].scrollHeight;
 }
 function removeSendButton(){
     let btn = document.getElementsByClassName('bx-send')[0];
@@ -56,7 +70,7 @@ function recoverSendButton(){
 
 // 獲得GPT 回應並且秀出
 function getReplyAndShow(text){
-    let reply = text;
+    let reply = text; // 尚未串接API
     showAiReply(reply);
 }
 
@@ -83,5 +97,7 @@ function showAiReply(reply){
 
     let chatDiv = document.querySelector('.chat');
     chatDiv.appendChild(chatbotDiv);
+    
     recoverSendButton();
+    // document.getElementsByClassName('chat')[0].scrollTop = document.getElementsByClassName('chat')[0].scrollHeight;
 }
