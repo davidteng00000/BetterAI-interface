@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="./myLLM.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./chat.css">
+    
+    
 </head>
 <body>
     <div class="container">
@@ -146,9 +148,7 @@
                 </div>
                 
             </div>
-            <script src="./myLLM.js">
-                
-            </script>
+            
         </div>
     </div>
     <div class="settings" id="setPage">
@@ -157,6 +157,7 @@
                 <div class="set-chatName">
                     <span>對話名稱: </span><input type="text" value="currName">
                     <!-- <i class='bx bx-check'></i> -->
+                    <i class='bx bx-x' id="closeSettings"></i>
                 </div>
                 <div class="set-sysPrompt">
                     <span>sys prompt: </span>
@@ -164,11 +165,27 @@
                 </div>
                 <div class="more-details" id="more-details-btn">
                     <span>more details</span><i class='bx bxs-chevron-down'></i>
-                    <div class="details">
-                        <div class="set-topP"></div>
-                        <div class="set-topK"></div>
-                        <div class="set-maxToken"></div>
-                    </div>
+                    
+                </div>
+                <div class="details">
+                    <div class="set-topP">Top-P</div>
+                    <div class="set-topK">Top-K</div>
+                    <div class="set-maxToken">gg</div>
+                    <div class="set-topP">Top-P</div>
+                    <div class="set-topK">Top-K</div>
+                    <div class="set-maxToken">gg</div>
+                    <div class="set-topP">Top-P</div>
+                    <div class="set-topK">Top-K</div>
+                    <div class="set-maxToken">gg</div>
+                    <div class="set-topP">Top-P</div>
+                    <div class="set-topK">Top-K</div>
+                    <div class="set-maxToken">gg</div>
+                    <div class="set-topP">Top-P</div>
+                    <div class="set-topK">Top-K</div>
+                    <div class="set-maxToken">gg</div>
+                    <div class="set-topP">Top-P</div>
+                    <div class="set-topK">Top-K</div>
+                    <div class="set-maxToken">gg</div>
                 </div>
                 <div id="setConfirmBtn">
                     <span>confirm</span><i class='bx bx-check'></i>
@@ -179,5 +196,7 @@
         </div>
     </div>
     <!-- <link rel="script" href="./myLLM.js"> -->
+    <script src="./myLLM.js"></script>
+    <script src="./chat.js"></script>
 </body>
 </html>

@@ -30,31 +30,46 @@ GPT4.addEventListener('click', () => changemodel('ChatGPT 4'));
 DALLE.addEventListener('click', () => changemodel('DALL·E 3'));
 
 
-// 偵測settingsIcon
-let setbtn = document.getElementsByClassName('settingsIcon')[0];
-let setP = false;
-let setBack = document.getElementById('setPage');
+let settingBtn = document.getElementsByClassName('settingsIcon')[0].querySelector('i');
+let settingWrapper = document.getElementById('setW');
+let detailBtn = document.getElementById('more-details-btn');
+let settingOpen = false;
+let detailsOpen = false;
+function openSettingPage(){
+    settingOpen = true;
+    detailBtn = document.getElementById('more-details-btn');
+    document.getElementById('setPage').style.display = 'block';
+    document.getElementById('closeSettings').addEventListener('click', closeSettingPage);
+    activateDetailsBtn();
+}
 
-function setPageOnOff(e){
+function closeSettingPage(){
     console.log(1);
-    if(setP === false){ //開啟設定介面
-        document.getElementById('setPage').style.display = "block";
-        setP = true;
-        console.log(2);
-        setBack = document.getElementById('setPage');
-        setBack.addEventListener('click', setPageOnOff);
+    settingOpen = false;
+    activateDetailsBtn();
+    document.getElementById('setPage').style.display = 'none';
+    document.getElementById('closeSettings').removeEventListener('click', closeSettingPage);
+}
+
+function activateDetailsBtn(){
+    if(settingOpen) detailBtn.addEventListener('click', details);
+    else detailBtn.removeEventListener('click', details);
+}
+
+function details(){
+    detailsOpen = !detailsOpen;
+    if(detailsOpen){
+        detailBtn.querySelector('i').style.transform = `rotate(0deg)`;
+        document.getElementsByClassName('details')[0].style.display = 'block';
+        document.getElementsByClassName('details')[0].style.maxHeight = "1000px";
+        
     }
     else{
-        if(e.target === document.getElementById('setPage')){ //關閉設定介面
-            document.getElementById('setPage').style.display = "none";
-            setP = false;
-            console.log(3);
-        }
-        
+        detailBtn.querySelector('i').style.transform = `rotate(90deg)`;
+        document.getElementsByClassName('details')[0].style.display = 'none';
+        document.getElementsByClassName('details')[0].style.maxHeight = "0";
     }
 }
 
-setbtn.addEventListener('click', e => setPageOnOff());
 
-// 偵測設定介面的more details btn
-let 
+settingBtn.addEventListener('click', openSettingPage);
