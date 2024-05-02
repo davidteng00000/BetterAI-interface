@@ -6,16 +6,17 @@ document.getElementById('inputTextArea').addEventListener('keydown', function(ev
         handleTextInput();
     }
 });
-
+// 讓問題出現在chat interface 並呼叫getReplyAndShow獲取reply
 function handleTextInput(){
     let text = document.getElementById('inputTextArea').value;
     document.getElementById('inputTextArea').value= '';
     addUserText(text);
+    getReplyAndShow(text);
 }
 
 // 把user 的文字內容append 到 chat interfane (.chat) 中
 function addUserText(text){
-    console.log(text);
+    // console.log(text);
     let userDiv = document.createElement('div');
     userDiv.classList.add('user');
     let nametagDiv = document.createElement('div');
@@ -38,4 +39,6 @@ function addUserText(text){
 
     let chatDiv = document.querySelector('.chat');
     chatDiv.appendChild(userDiv);
+
+
 }
