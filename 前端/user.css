@@ -2,12 +2,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 90.4vh;
-    max-height: 200vh;
+    /* min-height: 90.4vh;
+    max-height: 200vh; */
     background: url('./images/loginBack5.jpg') no-repeat;
     /* background: black; */
     background-position: center;
     background-size: cover;
+    flex: 1;
 }
   
 .wrapper {
