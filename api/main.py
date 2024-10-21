@@ -3,7 +3,7 @@ import os
 import django
 
 client = OpenAI(
-  api_key=os.environ.get(".env"),
+  	api_key=os.environ.get(".env"),
 )
 
 
@@ -20,13 +20,13 @@ client = OpenAI(
 
 
 response = client.chat.completions.create(
-  model="gpt-3.5-turbo",
-  messages=[
-    {"role": "system", "content": "You are a helpful assistant."},
-    {"role": "user", "content": "早安"},
-    {"role": "assistant", "content": "早安，你媽死了"},
-    {"role": "user", "content": "什麼是機器學習? 用500字列點說明"}
-  ]
+ 	 model="gpt-3.5-turbo",
+ 	 messages=[
+		{"role": "system", "content": "You are a helpful assistant."},
+		{"role": "user", "content": "早安，給我微積分公式，請多多使用粗體字"},
+		# {"role": "assistant", "content": "早安，你媽死了"},
+		# {"role": "user", "content": "什麼是機器學習? 用500字列點說明"}
+  	]
 )
 
 print(response.choices[0].message.content)

@@ -1,0 +1,129 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* min-height: 90.4vh;
+    max-height: 200vh; */
+    background: url('./images/loginBack5.jpg') no-repeat;
+    /* background: black; */
+    background-position: center;
+    background-size: cover;
+    flex: 1;
+}
+  
+.wrapper {
+    border-radius: 15px;
+    display: flex;
+    width: 80%; /* 設置 wrapper 寬度為視口寬度的 80% */
+    /* justify-content: space-between; */
+    background-color: rgb(215, 214, 214);
+    padding: 25px 25px;
+    background: transparent;
+    /* backdrop-filter: blur(10px); */
+    /* border: 20px solid rgba(0,0,0,0.3); */
+    /* border-image: url('./images/loginBack5.jpg'); */
+    min-height: 70vh;
+}
+  
+/* .control-panel {
+    border-radius: 15px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    width: 20%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .profileImg{
+        height: 35%;
+        border-radius: 50%;
+        margin-bottom: 30px;
+        
+    }
+    .sub{
+        width: 90%;
+        button {
+            font-size: 16px;
+            width: 100%;
+            padding: 15px 10px;
+            margin: 5px;
+            background-color: #e6e6e6;
+            border-color: #e6e6e6;
+            outline: none;
+            box-shadow: none;
+            border: none;
+            cursor: pointer;
+            &:hover{
+            transform: scale(1.1,1.1);
+            }
+            transition: transform 0.5s ease;
+        }
+        
+    }
+} */
+  
+.details {
+    /* background: transparent; */
+    border-radius: 15px;
+    color: white;
+    /* background-color: #e6e6e6; */
+    padding: 20px 10%;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    .user-settings {
+        color: #333;
+        .greet {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            color: white;
+            span {
+                color: #c6e2ff;
+            }
+        }
+        .sub {
+            color: rgba(255, 255, 255, 0.877);
+            margin: 20px 0;
+            font-size: 18px;
+            input{
+                width: 40%;
+                height: 30%;
+                background: transparent;
+                /* border: none; */
+                outline: none;
+                
+                border: 2px solid rgba(196, 196, 196, 0.2);
+                border-radius: 40px;
+                font-size: 16px;
+                color:  #ffef76ce;
+                padding: 10px 10px 10px 10px;
+                margin-top: 10px;
+                &::placeholder {
+                    color: #ffef76a6;
+                }
+                
+            }
+            button {
+                padding: 5px 10px;
+                cursor: pointer;
+                background: rgb(169, 169, 169);
+                border: none;
+                border-radius: 40px;
+                outline: none;
+                box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+                &:hover{
+                    transform: scale(1.05,1.05);
+                }
+                transition: transform 0.5s ease;
+            }
+        }
+
+
+    }
+
+}
+
+
+  

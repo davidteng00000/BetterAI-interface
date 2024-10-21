@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="./static/signUp.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                alert("{{ message }}");  // Display flash messages using JavaScript
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </script>
+</head>
+<body>
+    <link rel="stylesheet" href="./static/navbar.css">
+    <div class="navbar">
+        <a href="{{url_for('home')}}" class="navL">BetterAI</a>
+        <div class="dropdown">
+            <button class="dropbtn">Product lists</button>
+            <div class="dropdown-content">
+                <a href="{{url_for('myLLM')}}">myLLM</a>
+                <!-- <a href="https://www.asus.com/tw/">DALLE helper</a> -->
+            </div>
+            
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">About me</button>
+            <div class="dropdown-content">
+                <a href="https://www.instagram.com/david._.teng/">Instagram</a>
+                <a href="https://www.facebook.com/profile.php?id=100010503635046">Facebook</a>
+                
+            </div>
+        </div>
+        <a href="{{url_for('userPage')}}" class="navR logged userImg"><img src="./static/images/userImg.png" alt="userImg"></a>
+        
+        <a class="navR unlogged btn" href="{{url_for('login')}}">log in</a>
+        <a class="navR unlogged btn" href="{{url_for('signUp')}}">sign up</a>
+    </div>
+
+
+
+
+    <div class="container">
+        <div class="wrapper">
+            <form action="{{url_for('signUp')}}" method="post">
+                <h1>Sign up</h1>
+                <div class="input-box">
+                    <input type="text" placeholder="Please enter your Username" required name="username">
+                    <i class='bx bxs-user'></i>
+                    
+                </div>
+                <div class="rules">帳號名稱為6~12字的英數字組合
+                    <div class="rulessss">
+                        {% if NameError %}
+                            {{ NameError }}
+                        {% else %}
+                            &nbsp;
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <input type="password" placeholder="Please enter your Password" required name="userPWD">
+                    <i class='bx bxs-lock-alt'></i>
+                    
+                </div>
+                <div class="rules">帳號密碼為6~12字的英數字組合，必須包含: 英文大寫字母、英文小寫字母、數字</div>
+
+                <div class="input-box">
+                    <input type="password" placeholder="Please enter your Password again" required name="userPWD2">
+                    <i class='bx bxs-lock-alt'></i>
+                    
+                </div>
+                <div class="rules">請再輸入一次密碼<br>
+                    <div class="rulessss">
+                        {% if PWDerror %}
+                            {{ PWDerror }}
+                        {% else %}
+                            &nbsp;
+                        {% endif %}
+                    </div>
+                </div>
+                
+                
+
+                <button type="submit" class="btn">Register</button>
+                <div class="login-link">
+                    <p>Already have an account? <a href="{{url_for('login')}}">Login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>

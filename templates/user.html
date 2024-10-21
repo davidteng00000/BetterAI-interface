@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>@import url("./static/user.css");</style>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                alert("{{ message }}");  // Display flash messages using JavaScript
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </script>
+</head>
+<body>
+    <link rel="stylesheet" href="./static/navbar.css">
+    <div class="navbar">
+        <a href="{{url_for('home')}}" class="navL">BetterAI</a>
+        <div class="dropdown">
+            <button class="dropbtn">Product lists</button>
+            <div class="dropdown-content">
+                <a href="{{url_for('myLLM')}}">myLLM</a>
+                <!-- <a href="https://www.asus.com/tw/">DALLE helper</a> -->
+            </div>
+            
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">About me</button>
+            <div class="dropdown-content">
+                <a href="https://www.instagram.com/david._.teng/">Instagram</a>
+                <a href="https://www.facebook.com/profile.php?id=100010503635046">Facebook</a>
+                
+            </div>
+        </div>
+        <a href="{{url_for('userPage')}}" class="navR logged userImg"><img src="./static/images/userImg.png" alt="userImg"></a>
+        
+        <a class="navR unlogged btn" href="{{url_for('login')}}">log in</a>
+        <a class="navR unlogged btn" href="{{url_for('signUp')}}">sign up</a>
+    </div>
+
+    <div class="container">
+        <div class="wrapper">
+
+            <div class="details">
+                <div class="user-settings">
+                    <div class="greet"><span>{{Username}}</span>，你好 ! </div>
+                    <div class="change-API sub">
+                        <form action="{{url_for('userPage')}}" method="POST" name="updateAPI">
+                            請輸入openAI的API key並按下確認<br>
+                            <input type="password" placeholder="new API key" name="newAPI">
+                            <button type="submit">確認</button>
+                        </form>
+                    </div>
+                    <div class="logout sub">
+                        <form action="{{url_for('logout')}}" method="post" name="logout">
+                            <button>登出</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

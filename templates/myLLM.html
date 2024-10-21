@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myGPT</title>
+    <link rel="stylesheet" href="./static/myLLM.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./static/chat.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    
+    <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+        });
+    </script>
+
+    <script>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                alert("{{ message }}");  // Display flash messages using JavaScript
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </script>
+    <link rel="shortcut icon" href="">
+    
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="new" id="new_chat_btn">
+                New Chat <i class='bx bx-message-rounded-add' style='color:#ffffff'  ></i>
+            </div>
+            <span>chat histories</span>
+            <div class="histories" id="histories_list">
+                
+                <!-- <div class="history">
+                    Unitiled
+                </div> -->
+                
+            </div>
+            <div class="bottom">
+                <a class="goHome" href="{{url_for('home')}}">
+                    <i class='bx bxs-home'></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="chatInterface">
+            <div class="bar">
+                <div class="dropdown" id="chooseModel">
+                    <div class="dropdownbtn"><span id="currmodel">ChatGPT 4o</span><i class='bx bx-chevron-down'></i></div>
+                    <!-- <div class="dropdown-content">
+                        <div class="content" id="GPT3">ChatGPT 3.5</div>
+                        <div class="content" id="GPT4">ChatGPT 4o</div>
+                        <div class="content" id="DALLE">DALL·E 3</div>
+                    </div> -->
+                </div>
+                <div class="settingsIcon">
+                    <i class='bx bx-cog'></i>
+                </div>
+            </div>
+            <div class="chat" id="chat_field">
+
+                <div class="user">
+                    <div class="nametag"><i class='bx bx-user-circle'></i><span>You</span></div>
+                    <div class="content">
+                        \(\frac{d}{dx}[c] = 0\)
+        <p>\(\frac{d}{dx}[x] = 1\)</p>
+                    </div>
+                </div>
+                <div class="chatbot">
+                    <div class="nametag"><img src="./static/images/apple-touch-icon.png" alt=""><span>GPT</span></div>
+                    <div class="content">
+                        \(\frac{d}{dx}[c] = 0\)
+        <p>\(\frac{d}{dx}[x] = 1\)</p>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="chat-input">
+                <div class="inBar">
+                    <i class='bx bx-image-add'></i>
+                    <i class='bx bx-folder-plus'></i>
+                </div>
+                <div class="inText">
+                    <textarea id="inputTextArea"  placeholder="send messages..." required></textarea>
+                    <i class='bx bx-send'></i>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+    <div class="settings" id="setPage">
+        <div class="wrapper" id="setW">
+            <form class="main" action="" >
+                <div class="set-chatName">
+                    <label for="chatName">對話名稱:</label>
+                    <input type="text" value="currName" id="chatName">
+                    <!-- <i class='bx bx-check'></i> -->
+                    <i class='bx bx-x' id="closeSettings"></i>
+                </div>
+                <div class="set-sysPrompt">
+                    <label for="sysPrompt">Sys Prompt:</label>
+                    <textarea name="" id="sysPrompt" cols="30" rows="10" placeholder=""></textarea>
+                </div>
+                <div class="more-details" id="more-details-btn">
+                    <span>more details</span><i class='bx bxs-chevron-down'></i>
+                    
+                </div>
+                <div class="details">
+                    <div class="set-topP sub">
+                        <div class="tag">
+                            <label for="top_p_label" class="name">Top-P</label>
+                            <div class="value-display" id="top_p_value_display">1</div>
+                        </div>
+                        <div class="slider">
+                            
+                            <div class="minleft">0</div>
+                            <input type="range" min="0" max="1" step="0.01" value="1.00" id="top_p_slider">
+                            <div class="maxright">1</div>
+                        </div>
+                    </div>
+
+                    <div class="set-temp sub">
+                        <div class="tag">
+                            <label for="temperature_slider" class="name">Temperature</label>
+                            <div class="value-display" id="temperature_value_display">1</div>
+                        </div>
+                        <div class="slider">
+                            <div class="minleft">0</div>
+                            <input type="range" min="0" max="2" step="0.01" value="1" id="temperature_slider">
+                            <div class="maxright">2</div>
+                        </div>
+                    </div>
+
+                    <div class="set-freq sub">
+                        <div class="tag">
+                            <label for="frequency_penalty_slider" class="name">frequency penalty</label>
+                            <div class="value-display" id="frequency_penalty_value_display">0</div>
+                        </div>
+                        <div class="slider">
+                            <div class="minleft">0</div>
+                            <input type="range" min="0" max="2" step="0.01" value="0" id="frequency_penalty_slider">
+                            <div class="maxright">2</div>
+                        </div>
+                    </div>
+
+                    <div class="set-pres sub">
+                        <div class="tag">
+                            <label for="presence_penalty_slider" class="name">presence penalty</label>
+                            <div class="value-display" id="presence_penalty_value_display">0</div>
+                        </div>
+                        <div class="slider">
+                            <div class="minleft">0</div>
+                            <input type="range" min="0" max="2" step="0.01" value="0" id="presence_penalty_slider">
+                            <div class="maxright">2</div>
+                        </div>
+                    </div>
+
+                    <div class="set-tokens sub">
+                        <div class="tag">
+                            <label for="max_tokens_slider" class="name">max tokens</label>
+                            <div class="value-display" id="max_tokens_value_display">256</div>
+                        </div>
+                        <div class="slider">
+                            <div class="minleft">1</div>
+                            <input type="range" min="1" max="4095" step="1" value="256" id="max_tokens_slider">
+                            <div class="maxright">4095</div>
+                        </div>
+                    </div>
+
+                    <div class="set-stop sub">Stop sequences</div>
+                    
+                </div>
+                <div id="setConfirmBtn">
+                    <span>confirm</span><i class='bx bx-check'></i>
+                </div>
+            </form>
+            
+            
+        </div>
+    </div>
+    <!-- <link rel="script" href="./myLLM.js"> -->
+    <script src="./static/myLLM.js"></script>
+    <script src="./static/chat.js"></script>
+    
+    
+</body>
+</html>

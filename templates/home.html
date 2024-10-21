@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - BetterAI</title>
+    <!-- <style>@import url("./navbar.css");</style> -->
+    <!-- <style>@import url("./body.css");</style> -->
+    <script src="./home.js"></script>
+    <link rel="stylesheet" href="./static/home.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+
+    
+    
+    <link rel="stylesheet" href="./static/navbar.css">
+    <div class="navbar">
+        <a href="{{url_for('home')}}" class="navL">BetterAI</a>
+        <div class="dropdown">
+            <button class="dropbtn">Product lists</button>
+            <div class="dropdown-content">
+                <a href="{{url_for('myLLM')}}">myLLM</a>
+                <!-- <a href="https://www.asus.com/tw/">DALLE helper</a> -->
+            </div>
+            
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">About me</button>
+            <div class="dropdown-content">
+                <a href="https://www.instagram.com/david._.teng/">Instagram</a>
+                <a href="https://www.facebook.com/profile.php?id=100010503635046">Facebook</a>
+                
+            </div>
+        </div>
+        <a href="{{url_for('userPage')}}" class="navR logged userImg"><img src="./static/images/userImg.png" alt="userImg"></a>
+        
+        <a class="navR unlogged btn" href="{{url_for('login')}}">log in</a>
+        <a class="navR unlogged btn" href="{{url_for('signUp')}}">sign up</a>
+    </div>
+
+
+    <div class="main">
+        <div class="words">
+            
+            <div class="title">
+                早安,
+            </div>
+            <div class="content">
+                想要客製化使用AI 嗎?
+            </div>
+            <a href="{{url_for('myLLM')}}">
+                <div class="tryBtn">立即試用<i class='bx bxs-chevrons-down'></i></div>
+            </a>
+            
+        </div>
+        <img src="./static/images/homeImg.jpg" alt="homeLmg" class="img">
+        
+    </div>
+
+
+</body>
+</html>

@@ -91,7 +91,7 @@ function showAiReply(reply){
     let nametagDiv = document.createElement('div');
     nametagDiv.classList.add('nametag');
     let img = document.createElement('img');
-    img.setAttribute('src', './images/apple-touch-icon.png');
+    img.setAttribute('src', './static/images/apple-touch-icon.png');
     let span = document.createElement('span');
     span.textContent = 'GPT4';
 

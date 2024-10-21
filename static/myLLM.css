@@ -1,0 +1,501 @@
+* {
+    margin: 0;
+    /* padding: 0; */
+    font-family: Arial, sans-serif;
+}
+
+.container{
+    background-color: rgb(0, 0, 0);
+    min-height: 100vh;
+    min-width: 100vh;
+    max-height: 100vh;
+    /* max-width: 100vh; */
+    display: flex;
+    position: relative;
+    z-index: 1;
+}
+
+.settings {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 添加半透明黑色背景 */
+    z-index: 2; /* 确保.settings在最上层 */
+    display: none; /* 默认隐藏 */
+    border-radius: 15px;
+    
+    .wrapper {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgb(49, 49, 49);
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        width: 70%;
+        height: 80%;
+        /* max-height: 80vh; */
+        /* transition: display 0.2s ease; */
+         
+        /* flex: 0.95; */
+        .main{
+            overflow: hidden;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            width: fit-content;
+            
+            /* background-color: rgb(49, 49, 49);; */
+            color: white;
+            width: 100%;
+            height: 100%;
+            &::-webkit-scrollbar{
+                /* width: 55px; */
+                background-color: transparent;
+                /* color: rgba(179, 179, 179, 0.5); */
+            }
+            &::-webkit-scrollbar-thumb {
+                background-color: rgba(95, 95, 95, 0.5); 
+                border-radius: 5px; 
+            }
+            .set-chatName{
+                display: flex;
+                flex-direction: row;
+                label {
+                    transform: translateY(-10%);
+                    padding: 14px;
+                }
+                input{
+                    /* width: 85%; */
+                    width: 200px;
+                    background: transparent;
+                    outline: none;
+                    border: 2px solid rgba(255, 255, 255, .2);
+                    border-radius: 15px;
+                    font-size: 16px;
+                    color:  #ffff;
+                    padding: 12px;
+                    height: 16px;
+                    resize: none;
+                    &::placeholder {
+                        color: #ffff;
+                    }
+                }
+                i {
+                    position: fixed;
+                    right: 40px;
+                    /* flex: 1; */
+                    scale: 1.1;
+                    padding: 13px;
+                    /* margin-left: 5px; */
+                    height: 16px;
+                    max-width: 16px;
+                    cursor: pointer;
+                    border-radius: 15px;
+                    &:hover{
+                        background-color: rgba(255, 255, 255, .2);
+                    }
+                }
+            }
+            .set-sysPrompt{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                label{
+                    color: white;
+                    padding: 14px;
+                }
+                textarea{
+                    background: transparent;
+                    width: 85%;
+                    margin-left: 5%;
+                    background: transparent;
+                    outline: none;
+                    border: 2px solid rgba(255, 255, 255, .2);
+                    border-radius: 15px;
+                    font-size: 16px;
+                    color:  #ffff;
+                    padding: 12px;
+                    height: 80px;
+                    resize: none;
+                    &::placeholder {
+                        color: #ffff;
+                    }
+                    &::-webkit-scrollbar{
+                        /* width: 55px; */
+                        background-color: transparent;
+                        /* color: rgba(179, 179, 179, 0.5); */
+                    }
+                    &::-webkit-scrollbar-thumb {
+                        background-color: rgba(95, 95, 95, 0.5); 
+                        border-radius: 5px; 
+                    }
+                }
+                
+            }
+            .more-details{
+                width: 90%;
+                text-align: center;
+                padding: 10px 14px;
+                margin: 10px 3% 5px 3%;
+                border-radius: 10px;
+                &:hover{
+                    background-color: #4b4b4b;
+                }
+                span {
+                    margin-right: 6px;
+                }
+                i{
+                    transform: rotate(90deg);
+                    transition: transform 0.3s ease;
+                }
+                
+            }
+            .details{
+                display: none;
+                /* width: 90%; */
+                text-align: center;
+                /* padding: 10px 14px; */
+                margin: 1px 3% 15px 3%;
+                border-radius: 10px;
+                transition: transform 0.4s ease;
+                max-height: 0px;
+                .sub{
+                    margin: 1px 3% 15px 3%;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center; /* 垂直置中對齊 */
+                    justify-content: space-between; /* 水平均分空間 */
+                    .tag{
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        .name{
+                            color: #dddddd;
+                            margin-right: 25px;
+                        }
+                        .value-display{
+                            color: #bbbbbb;
+                            text-align: center;
+                        }
+                    }
+                    .slider{
+                        display: flex;
+                        align-items: center;
+                        /* flex-grow: 1; */
+                        .minleft, .maxright {
+                            width: 25px; /* 縮小兩側數字的寬度 */
+                            text-align: center;
+                        }
+                        input {
+                            /* width: 50%; */
+                            width: 250px; 
+                            margin: 0 10px; 
+                        }
+                    }
+                }
+            }
+            #setConfirmBtn{
+                width: 90%;
+                /* padding: 2%; */
+                margin: 0px 3%;
+                /* margin-top: 10px; */
+                text-align: center;
+                padding: 10px 14px;
+                background-color: #4b4b4b;
+                border-radius: 10px;
+                cursor: pointer;
+                span {
+                    padding: 14px;
+                }
+                &:hover{
+                    background-color: #6c6c6c;
+                }
+            }
+        }
+    }
+
+}
+
+
+.left{
+    background-color: rgb(28, 28, 28);
+    display: flex;
+    width: 20%;
+    /* max-width: 262px; */
+    /* float: left; */
+    min-height: 100vh;
+    text-align: center;
+    flex-direction: column;
+    /* min-height: 100vh; */
+    overflow: hidden;
+    max-height: 100vh;
+    .new{
+        /* width: 100%; */
+        padding: 4% 10%;
+        margin: 8%;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        /* min-height: 10vh; */
+        /* text-align: center; */
+        /* padding: 10% 25%; */
+        background-color: rgb(43, 43, 43);
+        /* border: 0.5px solid; */
+        color: white;
+        cursor: pointer;
+        border-radius: 10px;
+        &:hover{
+            background-color: rgba(107, 107, 107, 0.5);
+        }
+    }
+    span{
+        text-align: left;
+        color: #7f7f7f;
+        margin: 10px;
+    }
+    .histories{
+        width: 100%;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        overflow-y: auto;  
+        flex: 1;
+        
+        &::-webkit-scrollbar{
+            /* width: 55px; */
+            background-color: transparent;
+            /* color: rgba(179, 179, 179, 0.5); */
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: rgba(95, 95, 95, 0.5); 
+            border-radius: 5px; 
+        }
+        .history{
+            cursor: pointer;
+            align-items: center;
+            padding: 10px;
+            width: 80%;
+            border-radius: 10px;
+            margin-bottom: 2px;
+            
+            &:hover{
+                background-color: #4d4d4d;
+            }
+        }
+    }
+    .bottom{
+        width: 100%;
+        /* bottom: 20px;
+        position: fixed; */
+        display: flex;
+        flex-direction: column;
+        bottom: 10px;
+        text-align: center;
+        align-items: center;
+        margin:  0 0%;
+        a{
+            width: 100%;
+            i { 
+                width: 70%;
+                align-items: center;
+                background-color: rgb(43, 43, 43);
+                padding: 10px;
+                margin-bottom: 10px;
+                color: #ffff;
+                border-radius: 10px;
+                &:hover{
+                    background-color: rgba(87, 87, 87, 0.5);
+                }
+            }
+        }
+    }
+}
+.chatInterface{
+    width: 80%;
+    background-color: rgb(49, 49, 49);
+    min-height: 100vh;
+    max-height: 100vh;
+    flex-direction: column;
+    /* display: flex; */
+    overflow: hidden;
+    display: none;
+    .bar{
+        /* margin: 2%; */
+        padding: 7px 25px;
+        /* display: flex; */
+        background-color: rgb(49, 49, 49);
+        max-height: 10vh;
+        .dropdown:hover {
+            .dropdown-content{
+                display: block;
+            }
+        }
+        .dropdownbtn{
+            cursor: pointer;
+            color: white;
+            border-radius: 5px;
+            float: left;
+            padding: 10px 15px;
+            background-color: rgb(49, 49, 49);
+            /* position: absolute; */
+            &:hover{
+                background-color: rgba(95, 95, 95, 0.5);
+                
+            }
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #6c6c6c;
+            min-width: auto;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            top: 44px;
+            .content {
+                float: none;
+                color: rgb(193, 193, 193);
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                cursor: pointer;
+                &:hover{
+                    background-color: #4b4b4b;
+                }
+            }
+        }
+        .settingsIcon{
+            cursor: pointer;
+            float: right;
+            i{  color: white;
+                border-radius: 50%;
+                top: 50%;
+                transform: translateY(20%);
+                padding: 30%;
+                /* height: 30px; */
+                scale: 1.5;
+                /* margin-right: 20px; */
+                &:hover{
+                    background-color: rgba(95, 95, 95, 0.5);
+                }
+            }
+        }
+        
+    }
+    .chat{
+        text-align: center;
+        align-items: center;
+        /* height: 70vh; */
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        margin:  0 5%;
+        justify-content: flex-start;;
+        /* overflow: hidden; */
+        overflow-y: auto;
+        .greet{
+            
+            color: white;
+            font-size: 28px;
+        }
+        &::-webkit-scrollbar{
+            /* width: 55px; */
+            background-color: transparent;
+            /* color: rgba(179, 179, 179, 0.5); */
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: rgba(95, 95, 95, 0.5); 
+            border-radius: 5px; 
+        }
+    }
+    .chat-input{
+        text-align: center;
+        align-items: center;
+        margin:  0 0%;
+        display: flex;
+        flex-direction: column;
+        bottom: 10px;
+        /* position: fixed; */
+        width: 100%;
+        /* height: 100%; */
+        
+        .inBar{
+            /* float: left; */
+            display: flex;
+            flex-direction: row;
+            width: 80%;
+            padding: 10px;
+            i {
+                scale: 1.5;
+                color: #fff;
+                padding: 3px;
+                border-radius: 5px;
+                margin-right: 10px;
+                cursor: pointer;
+                &:hover{
+                    background-color: rgba(255, 255, 255, .2);
+                }
+            }
+        }
+        .inText{
+            display: flex;
+            flex-direction: row;
+            width: 85%;
+            #inputTextArea{
+                width: 85%;
+                background: transparent;
+                /* border: none; */
+                outline: none;
+                border: 2px solid rgba(255, 255, 255, .2);
+                border-radius: 15px;
+                font-size: 16px;
+                color:  #ffff;
+                padding: 14px;
+                height: 16px;
+                max-height: 64px;
+                resize: none;
+                transition: height 0.2s ease;
+                &::placeholder {
+                    color: #ffff;
+                }
+                &::-webkit-scrollbar{
+                    width: 0px;
+                }
+                &:is(:focus, :valid){
+                    border-color: none;
+                }
+            }
+            .bx-send{
+                scale: 2;
+                color: rgb(255, 255, 255);
+                padding: 5px;
+                margin-left: 15px;
+                height: 15px;
+                transform: translateY(25%);
+                border-radius: 10px;
+                cursor: pointer;
+                &:hover{
+                    background-color: rgba(95, 95, 95, 0.5);
+                }
+            }
+            .bx-stop-circle{
+                scale: 2;
+                color: rgb(255, 255, 255);
+                padding: 3px;
+                margin-left: 15px;
+                height: 15px;
+                transform: translateY(25%);
+                border-radius: 10px;
+                cursor: pointer;
+                &:hover{
+                    background-color: rgba(135, 38, 38, 0.5);
+                }
+            }
+        }
+
+
+    }
+}
